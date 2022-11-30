@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
-const Validate = require("../validations/Validation");
+const Validate = require("../validations/signupValidation");
 const jwt=require('jsonwebtoken')
 
 router.post("/signup", async (req, res) => {
@@ -13,7 +13,7 @@ router.post("/signup", async (req, res) => {
     password,
   });
 
-  const error = Validate.SignupValidation(req.body);
+  const error = Validate(req.body);
 
   if (error) return res.status(400).send(error.details[0].message);
 
