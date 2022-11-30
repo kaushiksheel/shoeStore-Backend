@@ -112,8 +112,8 @@ const stripe = require("stripe")(
           };
         }),
       
-        success_url: "https://shoestore-backend.onrender.com/order-success",
-        cancel_url: "https://shoestore-backend.onrender.com/order-failed",
+        success_url: "https://shoes-store-frontend-typescript.vercel.app/order-success",
+        cancel_url: "https://shoes-store-frontend-typescript.vercel.app/order-failed",
   
   
   
