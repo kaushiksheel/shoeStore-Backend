@@ -111,9 +111,9 @@ const stripe = require("stripe")(
             quantity: item.quantity,
           };
         }),
-  
-        success_url: "http://localhost:3000/order-success",
-        cancel_url: "http://localhost:3000/order-failed",
+      
+        success_url: "https://shoestore-backend.onrender.com/order-success",
+        cancel_url: "https://shoestore-backend.onrender.com/order-failed",
   
   
   
