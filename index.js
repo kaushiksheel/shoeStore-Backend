@@ -16,6 +16,8 @@ app.use(express.json());
 // Intializing Database
 DB();
 
+
+
 // Routes
 
 app.use("/api", signup);

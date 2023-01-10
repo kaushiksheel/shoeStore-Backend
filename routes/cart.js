@@ -1,12 +1,14 @@
-const stripe = require("stripe")(
-    "sk_test_51K6viUSEi48qcQQWAQ5gQFyw9EyU26d4YB8ucVG2eCo1lrsuVAlOgMKUOJFnlznebfqMBGS0AWkJ9RKTmu1DSD6700VwVek6g3"
-  );
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
   
   const express = require("express");
   const router = express.Router();
   const auth = require("../middleware/auth");
   const Cart = require("../models/Cart");
   
+
+  
+
+
   router.post("/add-to-cart", auth, async (req, res) => {
     const { name, image, desc, price, quantity } = req.body;
     const newItem = new Cart({
@@ -69,7 +71,7 @@ const stripe = require("stripe")(
   });
   
   async function payment_success() {
-    const { paymentIntent, error } = await stripe.confirmCardPayment("sk_test_51K6viUSEi48qcQQWAQ5gQFyw9EyU26d4YB8ucVG2eCo1lrsuVAlOgMKUOJFnlznebfqMBGS0AWkJ9RKTmu1DSD6700VwVek6g3");
+    const { paymentIntent, error } = await stripe.confirmCardPayment(process.env.STRIPE_SECRET_KEY);
     if (error) {
       // Handle error here
       console.log(error);
